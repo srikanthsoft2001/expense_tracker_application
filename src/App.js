@@ -51,7 +51,6 @@ function App() {
         title={expenses[3].title}
         amount={expenses[3].amount}
       />
-      1
     </div>
   );
 }
