@@ -6,20 +6,26 @@ import ExpenseDate from "./ExpenseDate.js";
 import Card from "../UI/Card.js";
 
 const ExpenseItem = (props) => {
-  const [title, setTitle] = useState(props.title);
+  // const [newTitle, setNewTitle] = useState("");
+  // const [title, setTitle] = useState(props.title);
 
-  const clickHandler = () => {
-    setTitle("New Title");
-    // alert("clicked!");
-  };
+  // const changeHandler = (event) => {
+  //   setNewTitle(event.target.value);
+  // };
+
+  // const clickHandler = () => {
+  //   setTitle(newTitle);
+  //   // alert("clicked!");
+  // };
 
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <div>{title}</div>
+        <div>{props.title}</div>
         <div className="expense-item__price">${props.amount}</div>
-        <button onClick={clickHandler}>Change title</button>
+        {/* <input type="text" value={newTitle} onChange={changeHandler} />
+        <button onClick={clickHandler}>Change title</button> */}
       </div>
     </Card>
   );
