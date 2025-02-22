@@ -1,42 +1,24 @@
+import React, { useState } from "react";
 // import the component before using it
 // import ExpenseItem from "./components/ExpenseItem.js";
 import Expenses from "./components/Expenses/Expenses.js";
-import NewExpense  from "./components/NewExpense/NewExpense.js";
+import NewExpense from "./components/NewExpense/NewExpense.js";
+
 
 const App = () => {
-  const expenses = [
-    {
-      id: 0,
-      title: "Car Insurence",
-      amount: 200,
-      date: new Date(2022, 3, 22),
-    },
-    {
-      id: 1,
-      title: "school fees",
-      amount: 230,
-      date: new Date(2022, 3, 23),
-    },
-    {
-      id: 2,
-      title: "room rent",
-      amount: 500,
-      date: new Date(2022, 3, 24),
-    },
-    {
-      id: 3,
-      title: "tution fees",
-      amount: 200,
-      date: new Date(2022, 3, 25),
-    },
-  ];
+  const [expenses, setExpenses] = useState([]);
+
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => [...prevExpenses, expense]);
+    // console.log(expense);
+  };
 
   return (
     <div className="app-container">
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses item={expenses} />
     </div>
   );
-}
+};
 
 export default App;
